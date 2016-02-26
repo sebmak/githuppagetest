@@ -1,13 +1,25 @@
 <html>
   <head>
-    <link rel="stylesheet" href="/main.css"></link>
-    <script src="https://fb.me/react-0.14.3.js"></script>
-    <script src="https://fb.me/react-dom-0.14.3.js"></script>
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="dist/main.css"></link>
+    <script src="dist/Bundle.js"></script>
   </head>
   <body>
     <div id="main">
       <i id="loading" class="animating"></i>
     </div>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+          var loader = document.getElementById('loading');
+          var main = document.getElementById('main');
+          loader.addEventListener("animationiteration", function() {
+            this.className = "complete";
+            setTimeout(function() {
+              document.body.style.background = "rgba(33,150,243,1)";
+              main.removeChild(loader);
+              Bundle.run(main);
+            }, 500)
+          });
+        }, false);
+    </script>
   </body>
 </html>
