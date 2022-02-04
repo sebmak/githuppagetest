@@ -1,25 +1,30 @@
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" href="dist/main.css"></link>
     <script src="dist/Bundle.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
     <div id="main">
-      <i id="loading" class="animating"></i>
+        <i id="loading" class="animating"></i>
     </div>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-          var loader = document.getElementById('loading');
-          var main = document.getElementById('main');
-          loader.addEventListener("animationiteration", function() {
-            this.className = "complete";
-            setTimeout(function() {
-              document.body.style.background = "rgba(33,150,243,1)";
-              main.removeChild(loader);
-              Bundle.run(main);
-            }, 500)
-          });
+            var loader = document.getElementById('loading');
+            var main = document.getElementById('main');
+            loader.addEventListener("animationiteration", function() {
+                this.className = "complete";
+                setTimeout(function() {
+                    document.body.style.background = "rgba(33,150,243,1)";
+                    main.removeChild(loader);
+                    Bundle.run(main);
+                }, 500)
+            });
         }, false);
     </script>
-  </body>
+</body>
+
 </html>
